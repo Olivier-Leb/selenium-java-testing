@@ -1,0 +1,24 @@
+driver.default = chrome
+driver.headless = true
+driver.chrome =
+driver.firefox =
+
+url.base =
+url.home = /
+url.login = /login
+url.register = /inscription
+url.logout = /logout
+url.help = /aide
+url.search = /serie/search
+url.media = /movie/273-matrix
+url.media.images = /movie/273-matrix/image
+url.media.credit = /movie/273-matrix/detail
+
+credential.login = bob@bob.com
+credential.password = 1234
+
+search.title = Cowboy Bebop
+search.year = 1998
+search.genre = 1
+search.credit = Hajime Yatate
+search.creditStartWith = Haji
