@@ -39,6 +39,9 @@ public class Search extends Page {
     @FindBy(css = "#f_rech input[type='submit']")
     private WebElement submit;
 
+    @FindBy(css = ".list h4")
+    private WebElement errorMesg;
+
     public Search(WebDriver driver) {
         super(driver, "url.search");
     }
@@ -114,12 +117,17 @@ public class Search extends Page {
     }
 
     public List<MediaInList> getResults() {
+        // Wait for results to load
         Wait<WebDriver> wait = new WebDriverWait(this.driver, Duration.ofSeconds(1));
-        wait.until(d -> this.driver.findElement(By.className("lst")).isDisplayed());
+        wait.until(d -> this.driver.findElement(By.className("list")).isDisplayed());
 
         return this.driver.findElements(By.className("st_lst"))
                 .stream()
                 .map(e -> new MediaInList(e))
                 .toList();
+    }
+
+    public WebElement getErrorMesg() {
+        return this.errorMesg;
     }
 }

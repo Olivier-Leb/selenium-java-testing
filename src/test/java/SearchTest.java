@@ -44,7 +44,7 @@ public class SearchTest extends Base {
         Search p = new Search(this.driver);
 
         // Fill the form
-        log.trace("Fill the form");
+        log.trace("Fill the form with valid data");
 
         String title = getConfigValue("search.title");
         String year = getConfigValue("search.year");
@@ -74,5 +74,27 @@ public class SearchTest extends Base {
         assertTrue(resultTitle.contains(title), "Wrong title, expected '" + title + "', got: '" + resultTitle + "'");
         assertEquals(year, resultYear, "Wrong year");
         assertEquals(creditName, resultCredit, "Wrong credit");
+    }
+
+    @Test
+    public void testSearchKo() {
+        this.setDefaultWebDriver();
+        Search p = new Search(this.driver);
+
+        // Fill the form
+        log.trace("Fill the form with random data");
+
+        p.getSearchInput().sendKeys("1234567890");
+        p.getYearInput().sendKeys("1234567890");
+
+        log.trace("Submit");
+        p.doSubmit();
+
+        // Validate result, should have 0 result and an error message
+        List<MediaInList> media = p.getResults();
+        assertEquals(0, media.size(), "Wrong result, expected 0, got: " + media.size());
+
+        assertTrue(p.doesElementExist(p.getErrorMesg()), "Error message not found");
+        log.info("Search not found: {}", p.getErrorMesg().getText());
     }
 }
