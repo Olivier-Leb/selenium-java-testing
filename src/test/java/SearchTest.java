@@ -95,6 +95,6 @@ public class SearchTest extends Base {
         assertEquals(0, media.size(), "Wrong result, expected 0, got: " + media.size());
 
         assertTrue(p.doesElementExist(p.getErrorMesg()), "Error message not found");
-        log.info("Search not found: {}", p.getErrorMesg().getText());
+        log.info("Search KO message: {}", p.getErrorMesg().getText());
     }
 }

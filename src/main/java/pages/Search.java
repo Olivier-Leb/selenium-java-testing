@@ -16,7 +16,6 @@ import pages.component.MediaInList;
 public class Search extends Page {
 
     @FindBy(id = "f_rech")
-    @CacheLookup
     private WebElement form;
 
     @FindBy(css = "#f_rech input[name='s']")
@@ -29,7 +28,6 @@ public class Search extends Page {
     private WebElement genreInput;
 
     @FindBy(css = "#f_rech #_credit")
-    @CacheLookup
     private WebElement creditInput;
 
     @FindBy(css = "#f_rech .h_bul")

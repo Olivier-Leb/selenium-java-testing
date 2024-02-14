@@ -17,7 +17,6 @@ public class Login extends Page {
     @FindBy(css = "form#log input[type='submit']")
     private WebElement submit;
 
-
     @FindBy(id = "mesg_log")
     private WebElement error;
 
