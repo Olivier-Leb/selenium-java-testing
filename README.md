@@ -14,3 +14,5 @@ accounts with register/login, ...
 
 Page Object classes are [defined here](https://github.com/Olivier-Leb/selenium-java-testing/tree/master/src/main/java/pages),
 and are [tested here](https://github.com/Olivier-Leb/selenium-java-testing/tree/master/src/test/java).
+
+The HTML report can be [seen here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/Olivier-Leb/selenium-java-testing/master/test-reports/html/index.html).
