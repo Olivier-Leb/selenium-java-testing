@@ -1,6 +1,6 @@
-package browsers;
+package example.selenium.browsers;
 
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

@@ -1,4 +1,4 @@
-package pages.component;
+package example.selenium.pages.component;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

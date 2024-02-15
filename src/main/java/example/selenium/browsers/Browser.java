@@ -1,8 +1,8 @@
-package browsers;
+package example.selenium.browsers;
 
 import org.openqa.selenium.WebDriver;
 
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 public class Browser {
 

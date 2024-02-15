@@ -1,4 +1,4 @@
-package utils;
+package example.selenium.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

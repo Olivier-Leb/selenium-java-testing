@@ -1,13 +1,15 @@
+package example.selenium.pages;
+
+import example.selenium.Base;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
-import pages.Menu;
-import utils.Media;
+import example.selenium.utils.Media;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.PropertyLoader.getLink;
+import static example.selenium.utils.PropertyLoader.getLink;
 
 public class MenuTest extends Base {
 

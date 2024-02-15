@@ -1,5 +1,7 @@
-import browsers.Chrome;
-import browsers.Firefox;
+package example.selenium;
+
+import example.selenium.browsers.Chrome;
+import example.selenium.browsers.Firefox;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +15,7 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 public abstract class Base {
     private String source;

@@ -1,4 +1,4 @@
-package pages;
+package example.selenium.pages;
 
 import java.util.List;
 import java.time.Duration;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.component.MediaInList;
+import example.selenium.pages.component.MediaInList;
 
 public class Search extends Page {
 

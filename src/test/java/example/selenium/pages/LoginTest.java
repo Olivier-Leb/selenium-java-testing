@@ -1,9 +1,9 @@
+package example.selenium.pages;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import example.selenium.Base;
 import org.junit.jupiter.api.Test;
-
-import pages.Home;
-import pages.Login;
 
 public class LoginTest extends Base {
 

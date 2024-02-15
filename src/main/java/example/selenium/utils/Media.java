@@ -1,8 +1,6 @@
-package utils;
+package example.selenium.utils;
 
 import java.util.*;
-
-import static utils.PropertyLoader.getConfigValue;
 
 public class Media {
     public static List<String> getCategories() {
@@ -20,7 +18,7 @@ public class Media {
 
         for (String c : categories) {
             for (String l : partialLinks) {
-                links.add(getConfigValue("url.base") + "/" + c + l);
+                links.add(PropertyLoader.getConfigValue("url.base") + "/" + c + l);
             }
         }
 

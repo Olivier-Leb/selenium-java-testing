@@ -1,10 +1,10 @@
-package pages;
+package example.selenium.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 public class Login extends Page {
 

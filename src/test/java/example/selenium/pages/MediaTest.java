@@ -1,12 +1,14 @@
+package example.selenium.pages;
+
+import example.selenium.Base;
 import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.WebElement;
-import pages.Media;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static utils.PropertyLoader.getLink;
+import static example.selenium.utils.PropertyLoader.getLink;
 
 public class MediaTest extends Base {
 

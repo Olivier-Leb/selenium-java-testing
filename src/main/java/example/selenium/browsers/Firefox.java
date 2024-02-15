@@ -1,11 +1,11 @@
-package browsers;
+package example.selenium.browsers;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxDriverService;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.GeckoDriverService;
 
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 public class Firefox extends Browser {
 

@@ -1,4 +1,4 @@
-package pages;
+package example.selenium.pages;
 
 import java.time.Duration;
 

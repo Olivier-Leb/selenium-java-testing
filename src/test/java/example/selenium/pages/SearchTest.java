@@ -1,16 +1,17 @@
+package example.selenium.pages;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.PropertyLoader.getConfigValue;
+import static example.selenium.utils.PropertyLoader.getConfigValue;
 
+import example.selenium.Base;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import pages.Search;
-import pages.component.MediaInList;
+import example.selenium.pages.component.MediaInList;
 
 public class SearchTest extends Base {
 
