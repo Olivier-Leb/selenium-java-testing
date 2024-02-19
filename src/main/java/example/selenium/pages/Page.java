@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 public abstract class Page extends LoadableComponent<Page> {
+
     protected static Logger log;
 
     protected final WebDriver driver;
@@ -22,7 +23,6 @@ public abstract class Page extends LoadableComponent<Page> {
         this.driver = driver;
         this.url = getConfigValue("url.base") + getConfigValue(url);
 
-        this.get();
         PageFactory.initElements(driver, this);
     }
 
@@ -34,7 +34,7 @@ public abstract class Page extends LoadableComponent<Page> {
 
     @Override
     protected void isLoaded() throws Error {
-        String url = driver.getCurrentUrl();
+        String url = this.driver.getCurrentUrl();
 
         if (!url.equals(this.url)) {
             throw new Error("Wrong page, want: " + this.url + ", got: " + url);
@@ -42,7 +42,7 @@ public abstract class Page extends LoadableComponent<Page> {
     }
 
     public String getUrl() {
-        return url;
+        return this.url;
     }
 
     /**

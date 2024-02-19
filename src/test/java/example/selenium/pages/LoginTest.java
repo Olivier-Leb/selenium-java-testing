@@ -3,16 +3,25 @@ package example.selenium.pages;
 import static org.junit.jupiter.api.Assertions.*;
 
 import example.selenium.Base;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LoginTest extends Base {
+    
+    private Login login;
 
+    @BeforeEach
+    public void prepareComponents() {
+        this.setDefaultWebDriver();
+
+        this.login = new Login(this.driver);
+    }
+    
     @Test
     public void testLoginOk() {
-        this.setDefaultWebDriver();
-        Login p = new Login(this.driver);
+        this.login.get();
 
-        Home homePage = p.submitOk();
+        Home homePage = this.login.submitOk();
 
         // Login is successful if we return to the home page
         String url = this.driver.getCurrentUrl();
@@ -22,10 +31,9 @@ public class LoginTest extends Base {
 
     @Test
     public void testLoginKo() {
-        this.setDefaultWebDriver();
-        Login p = new Login(this.driver);
+        this.login.get();
 
-        p.submitKo();
-        assertNotNull(p.getErrorMessage(), "Missing error message");
+        this.login.submitKo();
+        assertNotNull(this.login.getErrorMessage(), "Missing error message");
     }
 }

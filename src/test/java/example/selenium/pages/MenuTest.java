@@ -1,6 +1,7 @@
 package example.selenium.pages;
 
 import example.selenium.Base;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import example.selenium.utils.Media;
@@ -13,16 +14,24 @@ import static example.selenium.utils.PropertyLoader.getLink;
 
 public class MenuTest extends Base {
 
+    private Menu menu;
+
+    @BeforeEach
+    public void prepareComponents() {
+        this.setDefaultWebDriver();
+
+        this.menu = new Menu(this.driver);
+    }
+
     @Test
     public void testMenuMain() {
-        this.setDefaultWebDriver();
-        Menu p = new Menu(this.driver);
+        this.menu.get();
 
-        p.openMenuMain();
-        assertTrue(p.doesElementExist(p.getMenuMain()), "Main menu not found");
+        this.menu.openMenuMain();
+        assertTrue(this.menu.doesElementExist(this.menu.getMenuMain()), "Main menu not found");
 
         List<String> expectedLinks = Arrays.asList("home", "help", "login");
-        List<WebElement> links = p.getMenuMainLinks();
+        List<WebElement> links = this.menu.getMenuMainLinks();
         log.info("Main menu have {}/{} links}", links.size(), expectedLinks.size());
         assertEquals(expectedLinks.size(), links.size(), "Missing links in main menu: " + links.size() + "/" + expectedLinks.size());
 
@@ -40,14 +49,13 @@ public class MenuTest extends Base {
      */
     @Test
     public void testMenuMedia() {
-        this.setDefaultWebDriver();
-        Menu p = new Menu(this.driver);
+        this.menu.get();
 
-        p.openMenuMedia();
-        assertTrue(p.doesElementExist(p.getMenuMedia()), "Media menu not found");
-        
+        this.menu.openMenuMedia();
+        assertTrue(this.menu.doesElementExist(this.menu.getMenuMedia()), "Media menu not found");
+
         List<String> expectedLinks = Media.getLinks();
-        List<WebElement> links = p.getMenuMediaSubLinks();
+        List<WebElement> links = this.menu.getMenuMediaSubLinks();
         log.info("Media menu have {}/{} links", links.size(), expectedLinks.size());
         assertEquals(expectedLinks.size(), links.size(), "Missing links in main menu: " + links.size() + "/" + expectedLinks.size());
 
