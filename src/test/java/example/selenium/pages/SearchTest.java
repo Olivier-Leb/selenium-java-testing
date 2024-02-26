@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static example.selenium.utils.PropertyLoader.getConfigValue;
 
 import example.selenium.Base;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -15,25 +16,33 @@ import example.selenium.pages.component.MediaInList;
 
 public class SearchTest extends Base {
 
+    private Search search;
+
+    @BeforeEach
+    public void prepareComponents() {
+        this.setDefaultWebDriver();
+
+        this.search = new Search(this.driver);
+    }
+
     /**
      * Test if base form components and interactions are here (search field, select, tooltip hover, ...)
      */
     @Test
     public void testForm() {
-        this.setDefaultWebDriver();
-        Search p = new Search(this.driver);
+        this.search.get();
 
-        assertTrue(p.doesElementExist(p.getForm()), "Form not found");
-        assertTrue(p.doesElementExist(p.getSearchInput()), "Search field not found");
-        assertTrue(p.doesElementExist(p.getYearInput()), "Year field not found");
-        assertTrue(p.doesElementExist(p.getGenreInput()), "Genre field not found");
-        assertTrue(p.doesElementExist(p.getCreditInput()), "Credit field not found");
-        assertTrue(p.doesElementExist(p.getTooltipIcon()), "Input Tooltip not found");
+        assertTrue(this.search.doesElementExist(this.search.getForm()), "Form not found");
+        assertTrue(this.search.doesElementExist(this.search.getSearchInput()), "Search field not found");
+        assertTrue(this.search.doesElementExist(this.search.getYearInput()), "Year field not found");
+        assertTrue(this.search.doesElementExist(this.search.getGenreInput()), "Genre field not found");
+        assertTrue(this.search.doesElementExist(this.search.getCreditInput()), "Credit field not found");
+        assertTrue(this.search.doesElementExist(this.search.getTooltipIcon()), "Input Tooltip not found");
 
-        WebElement e = p
+        WebElement e = this.search
                 .displayTooltip()
                 .getTooltip();
-        assertTrue(p.doesElementExist(e), "Tooltip not found");
+        assertTrue(this.search.doesElementExist(e), "Tooltip not found");
     }
 
     /**
@@ -41,8 +50,7 @@ public class SearchTest extends Base {
      */
     @Test
     public void testSearch() {
-        this.setDefaultWebDriver();
-        Search p = new Search(this.driver);
+        this.search.get();
 
         // Fill the form
         log.trace("Fill the form with valid data");
@@ -51,20 +59,20 @@ public class SearchTest extends Base {
         String year = getConfigValue("search.year");
         String creditName = getConfigValue("search.credit");
 
-        p.getSearchInput().sendKeys(title);
-        p.getYearInput().sendKeys(year);
-        new Select(p.getGenreInput()).selectByValue(getConfigValue("search.genre"));
+        this.search.getSearchInput().sendKeys(title);
+        this.search.getYearInput().sendKeys(year);
+        new Select(this.search.getGenreInput()).selectByValue(getConfigValue("search.genre"));
 
         // Interact with autocompletion
-        p.setCredit(getConfigValue("search.creditStartWith"), creditName);
-        log.info("Credit set is: '{}'", p.getChosenCredit().getText());
-        assertEquals(creditName, p.getChosenCredit().getText(), "Credit not set or not found.");
+        this.search.setCredit(getConfigValue("search.creditStartWith"), creditName);
+        log.info("Credit set is: '{}'", this.search.getChosenCredit().getText());
+        assertEquals(creditName, this.search.getChosenCredit().getText(), "Credit not set or not found.");
 
         log.trace("Submit");
-        p.doSubmit();
+        this.search.doSubmit();
 
         // Validate result, should found 1 item
-        List<MediaInList> media = p.getResults();
+        List<MediaInList> media = this.search.getResults();
         assertEquals(1, media.size(), "Wrong result, expected 1, got: " + media.size());
 
         String resultTitle = media.get(0).getTitle();
@@ -79,23 +87,22 @@ public class SearchTest extends Base {
 
     @Test
     public void testSearchKo() {
-        this.setDefaultWebDriver();
-        Search p = new Search(this.driver);
+        this.search.get();
 
         // Fill the form
         log.trace("Fill the form with random data");
 
-        p.getSearchInput().sendKeys("1234567890");
-        p.getYearInput().sendKeys("1234567890");
+        this.search.getSearchInput().sendKeys("1234567890");
+        this.search.getYearInput().sendKeys("1234567890");
 
         log.trace("Submit");
-        p.doSubmit();
+        this.search.doSubmit();
 
         // Validate result, should have 0 result and an error message
-        List<MediaInList> media = p.getResults();
+        List<MediaInList> media = this.search.getResults();
         assertEquals(0, media.size(), "Wrong result, expected 0, got: " + media.size());
 
-        assertTrue(p.doesElementExist(p.getErrorMesg()), "Error message not found");
-        log.info("Search KO message: {}", p.getErrorMesg().getText());
+        assertTrue(this.search.doesElementExist(this.search.getErrorMesg()), "Error message not found");
+        log.info("Search KO message: {}", this.search.getErrorMesg().getText());
     }
 }

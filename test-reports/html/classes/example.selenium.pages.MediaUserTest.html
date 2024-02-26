@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - MediaUserTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>MediaUserTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/example.selenium.pages.html">example.selenium.pages</a> &gt; MediaUserTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">19.330s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testRatingCancel()</td>
+<td class="success">2.588s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRatingSet()</td>
+<td class="success">3.192s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUserListAdd()</td>
+<td class="success">4.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUserListRemove()</td>
+<td class="success">3.138s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testWatchListAdd()</td>
+<td class="success">3.355s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testWatchListRemove()</td>
+<td class="success">3.039s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-02-26 11:03:07.115 [Test worker] TRACE MediaUserTest - [ testUserListAdd() ]
+2024-02-26 11:03:07.115 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:08.623 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:09.976 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+2024-02-26 11:03:11.132 [Test worker] TRACE MediaUserTest - [ testWatchListAdd() ]
+2024-02-26 11:03:11.133 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:12.404 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:13.249 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+2024-02-26 11:03:14.489 [Test worker] TRACE MediaUserTest - [ testUserListRemove() ]
+2024-02-26 11:03:14.490 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:15.583 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:16.405 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+2024-02-26 11:03:17.628 [Test worker] TRACE MediaUserTest - [ testRatingCancel() ]
+2024-02-26 11:03:17.628 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:18.762 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:19.559 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+2024-02-26 11:03:19.703 [Test worker] INFO  MediaUserTest - Rating was: 10
+2024-02-26 11:03:19.950 [Test worker] INFO  MediaUserTest - Rating is now: -
+2024-02-26 11:03:20.216 [Test worker] TRACE MediaUserTest - [ testRatingSet() ]
+2024-02-26 11:03:20.217 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:21.543 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:22.281 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+2024-02-26 11:03:22.426 [Test worker] INFO  MediaUserTest - Current rating: -
+2024-02-26 11:03:22.757 [Test worker] INFO  MediaUserTest - Change for: 2
+2024-02-26 11:03:23.150 [Test worker] INFO  MediaUserTest - Change for: 10
+2024-02-26 11:03:23.408 [Test worker] TRACE MediaUserTest - [ testWatchListRemove() ]
+2024-02-26 11:03:23.410 [Test worker] TRACE MediaUserTest - Browser default: chrome
+2024-02-26 11:03:24.601 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/login
+2024-02-26 11:03:25.359 [Test worker] TRACE MediaUser - Opening browser with url: http://www.openstock-local.fr/movie/273-matrix
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.2</a> at Feb 26, 2024, 11:03:38 a.m.</p>
+</div>
+</div>
+</body>
+</html>

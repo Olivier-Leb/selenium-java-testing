@@ -19,6 +19,7 @@ public class MediaInList {
                 .getText()
                 .split(",")[0];
     }
+
     public String getCredit() {
         return root.findElement(By.cssSelector(".stelem p a")).getText();
     }

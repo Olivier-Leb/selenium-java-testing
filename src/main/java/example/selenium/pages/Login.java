@@ -3,6 +3,10 @@ package example.selenium.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static example.selenium.utils.PropertyLoader.getConfigValue;
 
@@ -34,7 +38,13 @@ public class Login extends Page {
         this.setCredentials(getConfigValue("credential.login"), getConfigValue("credential.password"));
         this.submit.click();
 
-        return new Home(this.driver);
+        Home home = new Home(this.driver);
+
+        // Wait for page to load
+        Wait<WebDriver> wait = new WebDriverWait(this.driver, Duration.ofSeconds(1));
+        wait.until(d -> home.getMediaSection().isDisplayed());
+
+        return home;
     }
 
     public Login submitKo() {
