@@ -1,9 +1,9 @@
-driver.default = chrome
+driver.default = CI_DRIVER_DEFAULT
 driver.headless = true
-driver.chrome =
-driver.firefox =
+driver.chrome = CI_DRIVER_CHROME_PATH
+driver.firefox = CI_DRIVER_FIREFOX_PATH
 
-url.base =
+url.base = CI_URL
 url.home = /
 url.login = /login
 url.register = /inscription
@@ -14,8 +14,8 @@ url.media = /movie/273-matrix
 url.media.images = /movie/273-matrix/image
 url.media.credit = /movie/273-matrix/detail
 
-credential.login = bob@bob.com
-credential.password = 1234
+credential.login = CI_USER_LOGIN
+credential.password = CI_USER_PASSWORD
 
 search.title = Cowboy Bebop
 search.year = 1998
