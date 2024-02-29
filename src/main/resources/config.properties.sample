@@ -1,9 +1,9 @@
 driver.default = CI_DRIVER_DEFAULT
 driver.headless = true
-driver.chrome = CI_DRIVER_CHROME_PATH
-driver.firefox = CI_DRIVER_FIREFOX_PATH
+driver.chrome =
+driver.firefox =
 
-url.base = CI_URL
+url.base = CI_URL_BASE
 url.home = /
 url.login = /login
 url.register = /inscription

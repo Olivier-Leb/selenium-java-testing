@@ -21,6 +21,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Setup properties with configuration variables
+      run: mv src/main/resources/config.properties.sample src/main/resources/config.properties
+        sed -i 's/CI_DRIVER_DEFAULT/$DRIVER_DEFAULT/g' src/main/resources/config.properties
+        sed -i 's/CI_URL_BASE/$URL_BASE/g' src/main/resources/config.properties
+        sed -i 's/CI_USER_LOGIN/$USER_LOGIN/g' src/main/resources/config.properties
+        sed -i 's/CI_USER_PASSWORD/$USER_PASSWORD/g' src/main/resources/config.properties
+      env:
+        DRIVER_DEFAULT: ${{ vars.DRIVER_DEFAULT }}
+        URL_BASE: ${{ vars.URL_BASE }}
+        USER_LOGIN: ${{ vars.USER_LOGIN }}
+        USER_PASSWORD: ${{ vars.USER_PASSWORD }}
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
