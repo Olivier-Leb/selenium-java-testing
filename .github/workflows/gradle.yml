@@ -40,6 +40,12 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
+    - name: Export tests results in Github
+      uses: actions/upload-artifact@v4
+      with:
+        name: full-reports
+        path: test-reports/
+
   dependency-submission:
 
     runs-on: ubuntu-latest
