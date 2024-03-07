@@ -27,8 +27,8 @@ jobs:
         sed -i "s/CI_DRIVER_DEFAULT/${{ vars.DRIVER_DEFAULT }}/g" src/main/resources/config.properties
         ESCAPED_URL=$(printf '%s\n' "${{ vars.URL_BASE }}" | sed -e 's/[\/&]/\\&/g')
         sed -i "s/CI_URL_BASE/$ESCAPED_URL/g" src/main/resources/config.properties
-        sed -i "s/CI_USER_LOGIN/${{ vars.USER_LOGIN }}/g" src/main/resources/config.properties
-        sed -i "s/CI_USER_PASSWORD/${{ vars.USER_PASSWORD }}/g" src/main/resources/config.properties
+        sed -i "s/CI_USER_LOGIN/${{ secrets.USER_LOGIN }}/g" src/main/resources/config.properties
+        sed -i "s/CI_USER_PASSWORD/${{ secrets.USER_PASSWORD }}/g" src/main/resources/config.properties
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
